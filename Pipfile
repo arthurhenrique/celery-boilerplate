@@ -5,9 +5,9 @@ name = "pypi"
 
 [packages]
 graypy = "*"
-celery = "*"
 bottle = "*"
 bjoern = "*"
+celery = "*"
 
 [dev-packages]
 
