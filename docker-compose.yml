@@ -3,19 +3,19 @@ services:
 
   server:
     build:
-      context: ./server
+      context: ./salad/server
       dockerfile: Dockerfile
     image: salad_server:1
 
   worker:
     build:
-      context: ./worker
+      context: ./salad/worker
       dockerfile: Dockerfile.worker
     image: salad_worker:1
 
   worker-monit:
     build:
-      context: ./worker
+      context: ./salad/worker
       dockerfile: Dockerfile.monit
     image: salad_monit:1
 

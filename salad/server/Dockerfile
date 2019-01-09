@@ -13,7 +13,6 @@ RUN mkdir /app
 
 WORKDIR /app
 
-RUN apt-get install libev-dev -y
 COPY ./ /app/
 
 # -- Install dependencies:

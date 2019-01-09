@@ -13,7 +13,7 @@ RUN mkdir /app
 
 WORKDIR /app
 
-COPY ./worker_app/ /app/
+COPY ./ /app/
 
 # -- Install dependencies:
 RUN pipenv install --deploy --system

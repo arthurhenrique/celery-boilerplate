@@ -2,9 +2,18 @@
 
 from celery import Celery, Task
 import time
+from config import data
 from log import log
 
-broker = 'amqp://localhost:5672/'
+broker = (
+    data["rabbitmq"]["protocol"]
+    + "://"
+    + data["rabbitmq"]["ip"]
+    + ":"
+    + data["rabbitmq"]["port"]
+)
+
+
 app = Celery('high_processing', broker=broker)
 
 
