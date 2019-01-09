@@ -1,0 +1,50 @@
+version: '3.7'
+services:
+
+  rabbitmq:
+    image: rabbitmq:3
+    hostname: rabbit
+    ports:
+      - 5672:5672
+
+  server_bm:
+    image: salad_server:1
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+    env_file:
+      - .env
+    ports:
+      - 8080:8080
+
+  worker_bm:
+    image: salad_worker:1
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+    depends_on:
+      - server_bm
+      - rabbitmq
+    env_file:
+      - .env
+
+  flower_bm:
+    image: salad_monit:1
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+    depends_on:
+      - worker_bm
+    env_file:
+      - .env
+    ports:
+      - 5555:5555
