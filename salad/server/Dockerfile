@@ -4,10 +4,6 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV LC_ALL C.UTF-8
 ENV LANG C.UTF-8
 
-ENV http_proxy="http://105.112.150.10:8080"
-ENV https_proxy="http://105.112.150.10:8080"
-ENV no_proxy=.sec.samsung.net
-
 # -- Install Application into container:
 RUN mkdir /app
 
