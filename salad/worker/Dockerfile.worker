@@ -16,4 +16,4 @@ RUN pipenv install --deploy --system
 
 EXPOSE 5672
 
-ENTRYPOINT ["celery", "-E", "-A", "worker:app","worker", "--loglevel=INFO", "-c", "20"]
+ENTRYPOINT ["celery", "-E", "-A", "worker:app","worker", "--loglevel=INFO", "--autoscale=10,5"]

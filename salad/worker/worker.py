@@ -26,7 +26,7 @@ class HighProcessingTask(Task):
         log.info('before process')
 
         # Simulates high processing
-        time.sleep(5)
+        time.sleep(15)
         log.info('after process')
 
         return True
