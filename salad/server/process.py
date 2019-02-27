@@ -25,6 +25,6 @@ def async_process():
 
     result = app.send_task('high_processing')
 
-    log.info('%s' % result)
+    log.info(f"{result}")
 
     return True

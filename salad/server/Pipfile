@@ -5,7 +5,8 @@ name = "pypi"
 
 [packages]
 gunicorn = "*"
-bottle = "*"
+flask = "*"
+celery = "*"
 
 [dev-packages]
 

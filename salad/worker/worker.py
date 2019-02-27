@@ -33,5 +33,5 @@ class HighProcessingTask(Task):
 
 
 @app.task(name='high_processing', base=HighProcessingTask)
-def high_processing(key_tracker):
+def high_processing():
     return True

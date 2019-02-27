@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "base configuration"
-./config.sh
+./salad/script/config.sh
 
 echo "docker configuration"
 docker swarm init

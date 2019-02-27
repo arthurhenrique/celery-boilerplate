@@ -1,26 +1,24 @@
 # -*- coding: utf-8 -*-
 
-import gunicorn
-from bottle import default_app, error, request, response, route, run
 import time
 
+from flask import Flask, Response, jsonify, request
 
-@route('/salad', method='POST')
+from log import log
+from process import async_process
+
+app = Flask(__name__)
+
+@app.route('/salad', methods=['POST'])
 def salad():
-
     data = request.json
-    log.info('%s' % data)
+    log.info(f"{data}")
 
     # async calls to process that's blocker or demands high processing
     async_process()
 
-    log.info('%s' % response.status)
-    log.info('%s' % response.status_code)
-
-    return response.status
+    return jsonify({"http": 200})
 
 
 if __name__ == "__main__":
-    run(host="localhost", port=8080)
-
-app = default_app()
+    app.run()
